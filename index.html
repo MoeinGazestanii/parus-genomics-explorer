@@ -25,7 +25,6 @@
         
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        /* استایل قاب‌ها (iframes) */
         iframe { width: 100%; height: 700px; border: 1px solid #ddd; border-radius: 8px; }
     </style>
 </head>
@@ -37,7 +36,8 @@
         
         <div class="tabs">
             <button class="tab-btn active" onclick="openTab('mapTab')" id="btnMap">📍 Map View</button>
-            <button class="tab-btn" onclick="openTab('tableTab')" id="btnTable">📊 Data Table</button>
+            <button class="tab-btn" onclick="openTab('tableTab')" id="btnTable">📊 Sequence Data</button>
+            <button class="tab-btn" onclick="openTab('infoTab')" id="btnInfo">📄 Sample Information</button>
         </div>
 
         <div id="mapTab" class="tab-content active">
@@ -47,27 +47,35 @@
         <div id="tableTab" class="tab-content">
             <iframe src="samples_table.html" id="tableIframe"></iframe>
         </div>
+
+        <div id="infoTab" class="tab-content">
+            <iframe src="sample_information.html" id="infoIframe"></iframe>
+        </div>
     </div>
 
     <script>
-        // عملکرد دکمه‌های تب
+        // عملکرد دکمه‌های تب برای ۳ حالت
         function openTab(tabId) {
-            // مخفی کردن تمام تب‌ها
+            // مخفی کردن همه تب‌ها
             document.getElementById('mapTab').classList.remove('active');
             document.getElementById('tableTab').classList.remove('active');
+            document.getElementById('infoTab').classList.remove('active');
+            
             document.getElementById('btnMap').classList.remove('active');
             document.getElementById('btnTable').classList.remove('active');
+            document.getElementById('btnInfo').classList.remove('active');
             
-            // نمایش تب انتخاب شده
+            // نمایش تب کلیک شده
             document.getElementById(tabId).classList.add('active');
             if(tabId === 'mapTab') document.getElementById('btnMap').classList.add('active');
             if(tabId === 'tableTab') document.getElementById('btnTable').classList.add('active');
+            if(tabId === 'infoTab') document.getElementById('btnInfo').classList.add('active');
         }
 
-        // این تابع توسط نقشه صدا زده می‌شود تا جدول را باز کند و فیلتر کند
+        // ارتباط نقشه با تب جدول
         window.switchToTable = function(urlHash) {
-            document.getElementById('tableIframe').src = urlHash; // آدرس جدول را آپدیت می‌کند
-            openTab('tableTab'); // تب جدول را باز می‌کند
+            document.getElementById('tableIframe').src = urlHash;
+            openTab('tableTab');
         };
     </script>
 </body>
