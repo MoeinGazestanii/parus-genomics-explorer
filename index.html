@@ -27,12 +27,19 @@
         
         iframe { width: 100%; height: 700px; border: 1px solid #ddd; border-radius: 8px; }
         
-        /* استایل اختصاصی برای مقالات */
-        .pub-box { padding: 30px; background: #fafafa; border: 1px solid #eaeaea; border-radius: 8px; }
+        /* استایل اختصاصی برای مقالات و تماس */
+        .content-box { padding: 30px; background: #fafafa; border: 1px solid #eaeaea; border-radius: 8px; }
+        
+        /* استایل لیست مقالات */
         .pub-list { list-style-type: none; padding: 0; margin: 0; }
         .pub-list li { margin-bottom: 25px; line-height: 1.7; color: #333; padding-left: 15px; border-left: 4px solid #0d6efd; }
-        .doi-link { color: #0d6efd; text-decoration: none; font-weight: bold; word-break: break-all; }
-        .doi-link:hover { text-decoration: underline; }
+        .custom-link { color: #0d6efd; text-decoration: none; font-weight: bold; word-break: break-all; }
+        .custom-link:hover { text-decoration: underline; }
+        
+        /* استایل بخش تماس */
+        .contact-details { margin-top: 25px; font-size: 1.05em; line-height: 1.8; color: #333; }
+        .contact-details p { margin: 8px 0; }
+        .address-box { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; color: #555; }
     </style>
 </head>
 <body>
@@ -46,6 +53,7 @@
             <button class="tab-btn" onclick="openTab('tableTab')" id="btnTable">📊 Sequence Data</button>
             <button class="tab-btn" onclick="openTab('infoTab')" id="btnInfo">📄 Sample Information</button>
             <button class="tab-btn" onclick="openTab('pubTab')" id="btnPub">📚 Related Publications</button>
+            <button class="tab-btn" onclick="openTab('contactTab')" id="btnContact">✉️ Contact Information</button>
         </div>
 
         <div id="mapTab" class="tab-content active">
@@ -61,35 +69,58 @@
         </div>
 
         <div id="pubTab" class="tab-content">
-            <div class="pub-box">
+            <div class="content-box">
                 <h3 style="color: #2c3e50; margin-top: 0; margin-bottom: 20px;">List of publications in which the samples on this website were analyzed:</h3>
                 <ul class="pub-list">
                     <li>
                         Corcoran, P., Gossmann, T.I., Barton, H.J., The Great Tit HapMap Consortium, Slate, J., Zeng, K., 2017. Determinants of the Efficacy of Natural Selection on Coding and Noncoding Variability in Two Passerine Species. <i>Genome Biol. Evol.</i> 9, 2987–3007. <br>
-                        <a href="https://doi.org/10.1093/gbe/evx213" target="_blank" class="doi-link">🔗 https://doi.org/10.1093/gbe/evx213</a>
+                        <a href="https://doi.org/10.1093/gbe/evx213" target="_blank" class="custom-link">🔗 https://doi.org/10.1093/gbe/evx213</a>
                     </li>
                     <li>
                         Laine, V.N., Gossmann, T.I., Schachtschneider, K.M., Garroway, C.J., Madsen, O., Verhoeven, K.J.F., de Jager, V., Megens, H.-J., Warren, W.C., Minx, P., Crooijmans, R.P.M.A., Corcoran, P., Sheldon, B.C., Slate, J., Zeng, K., van Oers, K., Visser, M.E., Groenen, M.A.M., 2016. Evolutionary signals of selection on cognition from the great tit genome and methylome. <i>Nat. Commun.</i> 7, 10474. <br>
-                        <a href="https://doi.org/10.1038/ncomms10474" target="_blank" class="doi-link">🔗 https://doi.org/10.1038/ncomms10474</a>
+                        <a href="https://doi.org/10.1038/ncomms10474" target="_blank" class="custom-link">🔗 https://doi.org/10.1038/ncomms10474</a>
                     </li>
                 </ul>
             </div>
         </div>
+
+        <div id="contactTab" class="tab-content">
+            <div class="content-box">
+                <p>The UPARUS database and this website are maintained by the Gossmann lab at the TU Dortmund University. The contact person is Nikolas Vellnow who maintains UPARUS with the aid of the student helper Mohammadmoein Hajihoseinigazestani (Moein Gazestani).</p>
+                
+                <div class="contact-details">
+                    <p><strong>Dr. Nikolas Vellnow</strong></p>
+                    <p>📧 E-Mail: <a href="mailto:nikolas.vellnow@tu-dortmund.de" class="custom-link">nikolas.vellnow@tu-dortmund.de</a></p>
+                    <p>📞 Tel.: <a href="tel:+492317556863" class="custom-link">+49-231-755-6863</a></p>
+                    
+                    <div class="address-box">
+                        <p><strong>Laboratory of Computational Systems Biology</strong></p>
+                        <p>Faculty of Biochemical and Chemical Engineering<br>
+                        Technical University Dortmund<br>
+                        Emil-Figge-Str. 66<br>
+                        44227 Dortmund, Germany</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
-        // عملکرد دکمه‌های تب برای ۴ حالت
+        // عملکرد دکمه‌های تب برای ۵ حالت
         function openTab(tabId) {
             // مخفی کردن همه تب‌ها
             document.getElementById('mapTab').classList.remove('active');
             document.getElementById('tableTab').classList.remove('active');
             document.getElementById('infoTab').classList.remove('active');
             document.getElementById('pubTab').classList.remove('active');
+            document.getElementById('contactTab').classList.remove('active');
             
             document.getElementById('btnMap').classList.remove('active');
             document.getElementById('btnTable').classList.remove('active');
             document.getElementById('btnInfo').classList.remove('active');
             document.getElementById('btnPub').classList.remove('active');
+            document.getElementById('btnContact').classList.remove('active');
             
             // نمایش تب کلیک شده
             document.getElementById(tabId).classList.add('active');
@@ -97,6 +128,7 @@
             if(tabId === 'tableTab') document.getElementById('btnTable').classList.add('active');
             if(tabId === 'infoTab') document.getElementById('btnInfo').classList.add('active');
             if(tabId === 'pubTab') document.getElementById('btnPub').classList.add('active');
+            if(tabId === 'contactTab') document.getElementById('btnContact').classList.add('active');
         }
 
         // ارتباط نقشه با تب جدول
