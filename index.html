@@ -7,23 +7,68 @@
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f4f7f6; }
         .container { max-width: 1200px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
         p { line-height: 1.8; color: #444; font-size: 1.1em; }
-        /* style */
-        iframe { width: 100%; height: 700px; border: 1px solid #ddd; border-radius: 8px; margin-top: 30px; }
+        
+        /* --- استایل‌های تب (Tabs) --- */
+        .tabs { display: flex; border-bottom: 2px solid #ddd; margin-top: 30px; }
+        .tab-btn {
+            background: none; border: none; padding: 12px 25px; font-size: 1.1em; 
+            cursor: pointer; color: #666; font-weight: 500;
+            border-bottom: 3px solid transparent; margin-bottom: -2px; transition: 0.3s;
+        }
+        .tab-btn:hover { color: #0d6efd; }
+        .tab-btn.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; font-weight: bold; }
+        
+        .tab-content { display: none; padding-top: 20px; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* استایل قاب‌ها (iframes) */
+        iframe { width: 100%; height: 700px; border: 1px solid #ddd; border-radius: 8px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Genomic Resources: Parus Genus</h1>
-        
         <p>This website provides public access to genomic resources of birds from the Parus genus. Parus is a genus of old-world birds in the tit family. Its most known member is the great tit (Parus major), which is also the species represented by the most samples on this website. However, in the future datasets from other Parus species and their many subspecies may be added here.</p>
-        
         <p>We provide a database of sequence data and the corresponding metadata of the samples to facilitate collaboration between researchers and provide access to this data to the public.</p>
         
-        <iframe src="Final_Styled_Map.html"></iframe>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('mapTab')" id="btnMap">📍 Map View</button>
+            <button class="tab-btn" onclick="openTab('tableTab')" id="btnTable">📊 Data Table</button>
+        </div>
+
+        <div id="mapTab" class="tab-content active">
+            <iframe src="Final_Styled_Map.html"></iframe>
+        </div>
+
+        <div id="tableTab" class="tab-content">
+            <iframe src="samples_table.html" id="tableIframe"></iframe>
+        </div>
     </div>
+
+    <script>
+        // عملکرد دکمه‌های تب
+        function openTab(tabId) {
+            // مخفی کردن تمام تب‌ها
+            document.getElementById('mapTab').classList.remove('active');
+            document.getElementById('tableTab').classList.remove('active');
+            document.getElementById('btnMap').classList.remove('active');
+            document.getElementById('btnTable').classList.remove('active');
+            
+            // نمایش تب انتخاب شده
+            document.getElementById(tabId).classList.add('active');
+            if(tabId === 'mapTab') document.getElementById('btnMap').classList.add('active');
+            if(tabId === 'tableTab') document.getElementById('btnTable').classList.add('active');
+        }
+
+        // این تابع توسط نقشه صدا زده می‌شود تا جدول را باز کند و فیلتر کند
+        window.switchToTable = function(urlHash) {
+            document.getElementById('tableIframe').src = urlHash; // آدرس جدول را آپدیت می‌کند
+            openTab('tableTab'); // تب جدول را باز می‌کند
+        };
+    </script>
 </body>
-
 </html>
-
