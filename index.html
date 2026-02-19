@@ -30,7 +30,27 @@
             color: white;
             padding: 60px 20px 80px 20px;
             text-align: center;
+            position: relative; /* مهم برای شناور کردن عکس پرنده */
         }
+        
+        /* استایل عکس پرنده */
+        .hero-logo {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            width: 140px; /* اندازه عکس */
+            height: 140px;
+            object-fit: cover; /* جلوگیری از کشیده شدن عکس */
+            border-radius: 50%; /* دایره‌ای کردن عکس */
+            border: 4px solid rgba(255, 255, 255, 0.1); /* قاب ظریف */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-logo:hover {
+            transform: scale(1.05) rotate(-3deg); /* افکت جذاب موقع هاور */
+        }
+
         .hero h1 { 
             font-size: 2.8rem; 
             font-weight: 700; 
@@ -44,10 +64,21 @@
             font-size: 1.1rem; 
         }
 
+        /* تنظیمات موبایل برای عکس پرنده */
+        @media (max-width: 768px) {
+            .hero-logo {
+                position: static;
+                display: block;
+                margin: 0 auto 20px auto;
+                width: 110px;
+                height: 110px;
+            }
+        }
+
         /* --- محفظه اصلی سایت --- */
         .container { 
             max-width: 1300px; 
-            margin: -40px auto 40px auto; /* بالا کشیدن کارت روی هدر */
+            margin: -40px auto 40px auto; 
             padding: 0 20px; 
         }
         
@@ -143,6 +174,8 @@
 <body>
 
     <header class="hero">
+        <img src="major.jpg" alt="Parus Major" class="hero-logo">
+        
         <h1>Genomic Resources: Parus Genus</h1>
         <p>This website provides public access to genomic resources of birds from the Parus genus. Parus is a genus of old-world birds in the tit family. Its most known member is the great tit (Parus major), which is also the species represented by the most samples on this website.</p>
         <p>We provide a database of sequence data and the corresponding metadata to facilitate collaboration between researchers and provide access to the public.</p>
@@ -248,4 +281,3 @@
     </script>
 </body>
 </html>
-
