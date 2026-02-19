@@ -382,25 +382,19 @@
             "columnDefs": [ { "orderable": false, "targets": [4] } ]
         });
 
-        // تابع هوشمند برای فیلتر کردن
         function applyHashFilter() {
             var hash = window.location.hash.substring(1); 
             if (hash) {
-                // 1. فیلتر کردن جدول در پس‌زمینه
                 table.search(hash).draw();
-                // 2. نشان دادن کلمه در باکس سرچ تا کاربر بتواند آن را پاک کند!
                 $('.dataTables_filter input').val(hash);
             } else {
-                // اگر هشتگ خالی بود (کاربر آن را پاک کرد)، همه چیز را نشان بده
                 table.search('').draw();
                 $('.dataTables_filter input').val('');
             }
         }
 
-        // اجرا در زمان باز شدن اولیه جدول
         applyHashFilter();
 
-        // مهم‌ترین بخش: وقتی روی نقشه‌ی جدیدی کلیک می‌شود و هشتگ عوض می‌شود، جدول فورا آپدیت شود
         $(window).on('hashchange', function() {
             applyHashFilter();
         });
@@ -408,3 +402,4 @@
 </script>
 </body>
 </html>
+
