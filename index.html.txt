@@ -21,8 +21,9 @@
         
         <p>We provide a database of sequence data and the corresponding metadata of the samples to facilitate collaboration between researchers and provide access to this data to the public.</p>
         
-        <iframe src="Clean_Embed_Map.html"></iframe>
+        <iframe src="Final_Styled_Map.html"></iframe>
     </div>
 </body>
 
 </html>
+
