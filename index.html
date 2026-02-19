@@ -24,32 +24,26 @@
             line-height: 1.6;
         }
 
-        /* --- بخش هدر بالا (Hero Section) --- */
+        
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             padding: 60px 20px 80px 20px;
             text-align: center;
-            position: relative; /* مهم برای شناور کردن عکس پرنده */
+            position: relative; 
         }
         
-        /* استایل عکس پرنده */
-        /* استایل عکس پرنده (اصلاح شده) */
-        /* استایل عکس پرنده (بدون کادر و شناور) */
-        /* استایل عکس پرنده (دایره‌ای و کامل درون کادر) */
-        /* استایل عکس پرنده (دایره ثابت، پرنده کوچک‌تر در مرکز) */
-        /* استایل عکس پرنده (نجات دادن نوک پرنده!) */
-        /* استایل عکس پرنده (بدون کادر و شناور) */
+        
         .hero-logo {
             position: absolute;
             top: 15px;
             right: 50px;
-            height: 180px; /* ارتفاع بیشتر برای وضوح بهتر */
-            width: auto; /* جلوگیری از کشیدگی عکس */
-            border: none; /* حذف کادر */
-            border-radius: 0; /* حذف دایره تا دم و نوک بریده نشوند */
-            background: transparent; /* پس‌زمینه کاملا شیشه‌ای */
-            /* یک سایه سه‌بعدی جذاب که دقیقا دور خود پرنده می‌افتد نه دور کادر */
+            height: 180px; 
+            width: auto; 
+            border: none; 
+            border-radius: 0; 
+            background: transparent; 
+            
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5)); 
             transition: transform 0.3s ease;
             z-index: 10;
@@ -82,7 +76,7 @@
             font-size: 1.1rem; 
         }
 
-        /* تنظیمات موبایل برای عکس پرنده */
+        
         @media (max-width: 768px) {
             .hero-logo {
                 position: static;
@@ -93,7 +87,7 @@
             }
         }
 
-        /* --- محفظه اصلی سایت --- */
+        
         .container { 
             max-width: 1300px; 
             margin: -40px auto 40px auto; 
@@ -107,7 +101,7 @@
             padding: 30px;
         }
 
-        /* --- استایل تب‌های مدرن (Pills) --- */
+        
         .tabs-container {
             display: flex;
             justify-content: center;
@@ -140,7 +134,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
         }
 
-        /* --- محتوای تب‌ها --- */
+        
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeInUp 0.4s ease forwards; }
         @keyframes fadeInUp { 
@@ -156,7 +150,7 @@
             background: #f8fafc;
         }
 
-        /* --- استایل کارت‌های مقالات و تماس --- */
+        
         .grid-layout {
             display: grid;
             gap: 20px;
@@ -174,7 +168,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
         
-        /* مقالات */
+        
         .pub-list { list-style: none; padding: 0; margin: 0; }
         .pub-list li { margin-bottom: 25px; border-left: 4px solid var(--primary); padding-left: 20px; }
         .pub-title { font-weight: 600; color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;}
@@ -182,7 +176,7 @@
         .custom-link { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 5px;}
         .custom-link:hover { text-decoration: underline; }
 
-        /* تماس با ما */
+        
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px;}
         .contact-person, .contact-address { background: #f8fafc; padding: 25px; border-radius: 12px; }
         .contact-person h4, .contact-address h4 { margin-top: 0; color: #0f172a; font-size: 1.2rem; margin-bottom: 15px;}
@@ -300,6 +294,7 @@
     </script>
 </body>
 </html>
+
 
 
 
