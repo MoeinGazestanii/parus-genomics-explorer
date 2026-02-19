@@ -9,7 +9,7 @@
         .container { max-width: 1200px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         p { line-height: 1.8; color: #444; font-size: 1.1em; }
-        /* استایل قاب نقشه */
+        /* style */
         iframe { width: 100%; height: 700px; border: 1px solid #ddd; border-radius: 8px; margin-top: 30px; }
     </style>
 </head>
@@ -24,4 +24,5 @@
         <iframe src="Clean_Embed_Map.html"></iframe>
     </div>
 </body>
+
 </html>
