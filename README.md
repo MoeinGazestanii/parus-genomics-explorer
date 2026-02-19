@@ -1,4 +1,4 @@
-# UPARUS: Genomic Resources for the Parus Genus 🧬🐦
+# PROTOTYPE UPARUS: Genomic Resources for the Parus Genus 🧬🐦
 
 [![Website Status](https://img.shields.io/badge/Website-Live-brightgreen.svg)](#) [![Maintained by](https://img.shields.io/badge/Maintained%20by-Gossmann%20Lab-blue.svg)](https://www.tu-dortmund.de/)
 
