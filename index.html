@@ -36,32 +36,36 @@
         /* استایل عکس پرنده */
         /* استایل عکس پرنده (اصلاح شده) */
         /* استایل عکس پرنده (بدون کادر و شناور) */
+        /* استایل عکس پرنده (دایره‌ای و کامل درون کادر) */
         .hero-logo {
             position: absolute;
-            top: 15px;
-            right: 50px;
-            height: 180px; /* ارتفاع بیشتر برای وضوح بهتر */
-            width: auto; /* جلوگیری از کشیدگی عکس */
-            border: none; /* حذف کادر */
-            border-radius: 0; /* حذف دایره تا دم و نوک بریده نشوند */
-            background: transparent; /* پس‌زمینه کاملا شیشه‌ای */
-            /* یک سایه سه‌بعدی جذاب که دقیقا دور خود پرنده می‌افتد نه دور کادر */
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5)); 
-            transition: transform 0.3s ease;
-            z-index: 10;
+            top: 25px; /* کمی فاصله از بالا */
+            right: 40px;
+            width: 160px;  /* سایز را کمی بزرگتر کردم تا پرنده واضح‌تر شود */
+            height: 160px;
+            object-fit: contain; /* دستور طلایی: کل عکس را بدون بریدگی درون دایره جا می‌دهد */
+            border-radius: 50%; /* شکل دایره‌ای */
+            border: 4px solid rgba(255, 255, 255, 0.25); /* قاب سفید نیمه‌شفاف و باکلاس */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); /* سایه عمیق برای حالت سه‌بعدی */
+            background-color: transparent; /* مهم: پس‌زمینه دایره شیشه‌ای می‌شود تا هدر آبی دیده شود */
+            padding: 5px; /* یک فاصله ریز بین پرنده و قاب دایره */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* انیمیشن نرم و فنری */
         }
         
         .hero-logo:hover {
-            transform: scale(1.1) rotate(-4deg);
+            transform: scale(1.08) rotate(-3deg); /* افکت جذاب موقع هاور */
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4); /* سایه بیشتر موقع هاور */
+            border-color: rgba(255, 255, 255, 0.6); /* قاب روشن‌تر می‌شود */
         }
 
-        /* تنظیمات موبایل */
+        /* تنظیمات موبایل برای عکس پرنده */
         @media (max-width: 768px) {
             .hero-logo {
                 position: static;
                 display: block;
                 margin: 0 auto 20px auto;
-                height: 140px;
+                width: 130px;
+                height: 130px;
             }
         }
 
@@ -295,6 +299,7 @@
     </script>
 </body>
 </html>
+
 
 
 
