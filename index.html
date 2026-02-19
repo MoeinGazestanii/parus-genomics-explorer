@@ -34,21 +34,24 @@
         }
         
         /* استایل عکس پرنده */
+        /* استایل عکس پرنده (اصلاح شده) */
         .hero-logo {
             position: absolute;
             top: 30px;
             right: 40px;
-            width: 140px; /* اندازه عکس */
-            height: 140px;
-            object-fit: cover; /* جلوگیری از کشیده شدن عکس */
-            border-radius: 50%; /* دایره‌ای کردن عکس */
-            border: 4px solid rgba(255, 255, 255, 0.1); /* قاب ظریف */
+            width: 150px; /* سایز را کمی بزرگتر کردم تا پرنده واضح‌تر شود */
+            height: 150px;
+            object-fit: contain; /* این کلمه جادویی کل عکس را داخل دایره جا می‌دهد */
+            object-position: center; /* عکس را دقیقاً در مرکز تنظیم می‌کند */
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3); /* قاب سفید نیمه‌شفاف */
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             transition: transform 0.3s ease;
+            background-color: #e3e4e6; /* دقیقاً همرنگ پس‌زمینه طوسی عکس پرنده */
         }
         
         .hero-logo:hover {
-            transform: scale(1.05) rotate(-3deg); /* افکت جذاب موقع هاور */
+            transform: scale(1.08) rotate(-4deg);
         }
 
         .hero h1 { 
@@ -281,5 +284,6 @@
     </script>
 </body>
 </html>
+
 
 
